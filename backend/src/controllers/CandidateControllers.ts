@@ -1,8 +1,9 @@
 import { Request, Response } from "express";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import Candidate from "../models/candidate";
+import Candidate from "../models/Candidate";
 import Employee from "../models/Employee";
+
 
 
 // Candidate Registration
