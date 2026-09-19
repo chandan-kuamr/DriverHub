@@ -35,7 +35,7 @@ function App() {
          */}
 
         <Route
-          path="/register"
+          path="/"
           element={<CandidateRegister />}
         />
 
