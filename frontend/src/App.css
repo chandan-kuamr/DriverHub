@@ -554,3 +554,60 @@
     flex-direction: column;
   }
 }
+
+.candidate-login-button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+  background: #967544;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.candidate-login-button:hover {
+  background: #7f6238;
+}
+
+.employee-login-section {
+  margin-top: 24px;
+}
+
+.login-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  color: #999;
+  font-size: 13px;
+}
+
+.login-divider::before,
+.login-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #ddd;
+}
+
+.employee-login-button {
+  width: 100%;
+  padding: 12px;
+  background: #ffffff;
+  color: #967544;
+  border: 1px solid #967544;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.employee-login-button:hover {
+  background: #967544;
+  color: #ffffff;
+}

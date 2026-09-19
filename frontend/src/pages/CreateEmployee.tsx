@@ -1,11 +1,14 @@
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const CreateEmployee = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,10 +26,14 @@ const CreateEmployee = () => {
 
       alert(response.data.message);
 
+      // Clear form
       setName("");
       setEmail("");
       setPhone("");
       setPassword("");
+
+      // Go to Employee Login
+      navigate("/employee/login");
 
     } catch (error: any) {
       alert(

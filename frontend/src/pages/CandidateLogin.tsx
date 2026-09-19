@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const CandidateLogin = () => {
   const [emailOrPhone, setEmailOrPhone] = useState("");
@@ -7,6 +8,8 @@ const CandidateLogin = () => {
 
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+
+  const navigate = useNavigate();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,17 +30,15 @@ const CandidateLogin = () => {
 
       const { token, role } = response.data;
 
-      // Save login information
       localStorage.setItem("token", token);
       localStorage.setItem("role", role);
 
       setSuccess("Login successful!");
 
-      // Redirect based on role
       if (role === "employee" || role === "admin") {
-        window.location.href = "/employee/dashboard";
+        navigate("/employee/dashboard");
       } else {
-        window.location.href = "/dashboard";
+        navigate("/dashboard");
       }
 
     } catch (error: any) {
@@ -79,7 +80,6 @@ const CandidateLogin = () => {
 
         <form onSubmit={handleLogin}>
 
-          {/* Email or Phone */}
           <div className="form-group">
 
             <label>Email or Phone</label>
@@ -96,7 +96,7 @@ const CandidateLogin = () => {
 
           </div>
 
-          {/* Password */}
+
           <div className="form-group">
 
             <label>Password</label>
@@ -113,11 +113,32 @@ const CandidateLogin = () => {
 
           </div>
 
-          <button type="submit">
-            Login
+
+          <button
+            type="submit"
+            className="candidate-login-button"
+          >
+             Login
           </button>
 
         </form>
+
+
+        <div className="employee-login-section">
+
+          <div className="login-divider">
+            <span>OR</span>
+          </div>
+
+          <button
+            type="button"
+            className="employee-login-button"
+            onClick={() => navigate("/employee/login")}
+          >
+            Employee Login
+          </button>
+
+        </div>
 
       </div>
 
